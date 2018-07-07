@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<title>租房信息</title>
+</head>
+<body>
+
+<h3>房源信息：</h3>
+<form method="post" th:method="post" th:action="@{/house}" th:object="${notice}">
+	<table border="1" >
+    <tr>
+        <th>ID</th>
+        <th>地址</th>
+        <th>类型</th>
+        <th>适合住宿的人数</th>
+        <th>房租</th>
+        <th>房东ID</th>
+        <th>是否可以租房</th>
+        <th>是/否的原因</th>
+    </tr>
+    <tr th:each="house:${houseList.list}">
+        <td th:text="${house.id}">ID</td>
+        <td th:text="${house.houAddress}">地址</td>
+        <td th:text="${house.type}">类型</td>
+        <td th:text="${house.population}">适合住宿的人数</td>
+        <td th:text="${house.rentPrice}">房租</td>
+        <td th:text="${house.landlord.lanName}">房东ID</td>
+        <td th:text="${house.rentOrNot}">是否可以租房</td>
+        <td th:text="${house.reason}">是/否的原因</td>
+
+    </tr>
+</table>
+<input type="submit" name="submit" value="提交">
+</form>
+
+  <a th:href="@{/index}">首页</a>
+  <a href="'@{/student/'+@{stuName}">返回学生信息页面</a>
+</body>
+</html>

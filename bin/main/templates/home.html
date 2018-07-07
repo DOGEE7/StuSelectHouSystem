@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<title>欢迎来到学生住宿服务系统</title>
+</head>
+<body>
+	<h3>学生住宿服务系统</h3>
+	<table>
+		<tr>
+			<td>登陆：</td>
+			<td>
+				<select onchange="window.open(this.options[this.selectedIndex].value)" name="select">
+					<option th:value="@{/student/login}" >学生</option>
+					<option th:value="@{/landlord/login}" selected="selected">房东</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>注册：</td>
+			<td>
+				<select onchange="window.open(this.options[this.selectedIndex].value)" name="select">
+					<option th:value="@{/student/register}" selected="selected">学生</option>
+					<option th:value="@{/landlord/register}">房东</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

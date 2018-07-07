@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>支付页面</title>
+</head>
+<body>
+	<h3>支付信息</h3>
+	<span>
+		<text>支付金额：</text>
+		<p th:text="${house.updateCost}">金额</p>
+	</span>
+	<img src="/pay.jpg">
+	<a th:href="@{'/landlord/'+${landName}">已付款，查看房源信息</a>
+</body>
+</html>

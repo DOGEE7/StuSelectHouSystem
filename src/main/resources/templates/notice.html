@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<title>租房通知</title>
+</head>
+<body>
+	<p3>请查看租房通知:</p3>
+		<table>
+			<tr>
+				<td>时间：</td><td th:text="${notice.time}">时间</td>
+				<td>地点：</td><td th:text="${notice.place}">地点</td>
+				<td>学生：</td><td th:text="${notice.studentName}">学生</td>
+				<td>学生手机号码：</td><td th:text="${notice.studentTel}">学生手机号码</td>
+				<td>房东：</td><td th:text="${notice.landlordName}">房东</td>
+				<td>房东手机号码：</td><td th:text="${notice.landlordTel}">房东手机号码</td>
+			
+		</table>
+	<p style="color:red">请按照通知时间到达指定地点会面</p>
+</body>
+</html>

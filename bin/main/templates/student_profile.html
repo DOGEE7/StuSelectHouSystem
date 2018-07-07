@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<title>学生页面</title>
+</head>
+<body>
+<div class="container col-md-12">
+   <table class="table">
+   <thead>
+    <tr><td colspan="2">学生基本信息</td></tr>
+   </thead>
+   <tr><td>id:</td><td th:text="${student.id}">id</td></tr>
+   <tr><td>姓名：</td><td th:text="${student.stuName}">姓名</td></tr>
+   <tr><td>性别：</td><td th:text="${student.gender}">性别</td></tr>
+   <tr><td>出生日期：</td><td th:text="${student.birthDate}">出生日期</td></tr>
+   <tr><td>现住址：</td><td th:text="${student.stuAddress}">现住址</td></tr>
+   <tr><td>手机号码:</td><td th:text="${student.stuPhoneNumber}">手机号码</td></tr>
+   </table>
+   
+   <p3>请查看租房通知:</p3>
+      <table>
+        <tr> <td>时间：</td><td th:text="${notice.time}">时间</td></tr>
+         <tr> <td>地点：</td><td th:text="${notice.place}">地点</td></tr> 
+         <tr>   <td>学生：</td><td th:text="${notice.studentName}">学生</td></tr>
+         <tr>   <td>学生手机号码：</td><td th:text="${notice.studentTel}">学生手机号码</td></tr>
+         <tr>   <td>房东：</td><td th:text="${notice.landlordName}">房东</td></tr>
+         <tr>  <td>房东手机号码：</td><td th:text="${notice.landlordTel}">房东手机号码</td></tr>
+         
+      </table>
+   <p style="color:red">请按照通知时间到达指定地点会面</p>
+   <a th:href="@{/house}">查看房屋信息</a>
+   <a th:href="@{/student/login}">重新登陆</a>
+   <a th:href="@{/index}">首页</a>
+</div>
+</body>
+</html>

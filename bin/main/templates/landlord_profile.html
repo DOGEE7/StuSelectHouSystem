@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<title>房东主页</title>
+</head>
+<body>
+<div class="container col-md-12">
+   <table class="table">
+   <thead>
+    <tr><td colspan="2">房东基本信息：</td></tr>
+   </thead>
+   <tr><td>id:</td><td th:text="${landlord.id}">id</td></tr>
+   <tr><td>姓名：</td><td th:text="${landlord.lanName}">姓名</td></tr>
+   <tr><td>住址：</td><td th:text="${landlord.lanAddress}">现住址</td></tr>
+   <tr><td>手机号码:</td><td th:text="${landlord.lanPhoneNumber}">手机号码</td></tr>
+   <tr><td>房屋信息：</td><td th:text="${landlord.house}"> 房屋信息</td></tr>
+   </table>
+   <a th:href="@{/notice}">查看租房通知</a>
+   <a th:href="@{/house/modify}">修改房屋信息</a>
+   <a th:href="@{/student/login}">重新登陆</a>
+   <a th:href="@{/index}">首页</a>
+</div>
+
+<div class="container col-md-12">
+   <table class="table">
+   <thead>
+    <tr><td colspan="2">房源基本信息：</td></tr>
+   </thead>
+   <tr><td>id:</td><td th:text="${house.id}">id</td></tr>
+   <tr><td>地址：</td><td th:text="${house.houAddress}">地址</td></tr>
+   <tr><td>类型：</td><td th:text="${house.type}">类型</td>	</tr>
+   <tr><td>手机号码:</td><td th:text="${landlord.lanPhoneNumber}">手机号码</td></tr>
+   <tr><td>房屋信息：</td><td th:text="${landlord.house}"> 房屋信息</td></tr>
+   </table>
+   <p5>请查看租房通知:</p5>
+      <table>
+         <tr> <td>时间：</td><td th:text="${notice.time}">时间</td></tr>
+         <tr> <td>地点：</td><td th:text="${notice.place}">地点</td></tr> 
+         <tr>   <td>学生：</td><td th:text="${notice.studentName}">学生</td></tr>
+         <tr>   <td>学生手机号码：</td><td th:text="${notice.studentTel}">学生手机号码</td></tr>
+         <tr>   <td>房东：</td><td th:text="${notice.landlordName}">房东</td></tr>
+         <tr>  <td>房东手机号码：</td><td th:text="${notice.landlordTel}">房东手机号码</td></tr>
+         
+      </table>
+   <p style="color:red">tips:请按照通知时间到达指定地点会面</p>
+   <a th:href="@{/house/modify}">修改房屋信息</a>
+   <a th:href="@{/house/increase}">增加房源</a>
+   <a th:href="@{/student/login}">重新登陆</a>
+   <a th:href="@{/index}">首页</a>
+</div>
+</body>
+</html>

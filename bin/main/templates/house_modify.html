@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<title>房屋信息修改</title>
+</head>
+<body>
+	<h3>修改房屋信息：</h3>
+	<form method="post"
+      th:method="post" th:action="@{/house/modify}" th:object="${houseList}">
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>地址</th>
+            <th>类型</th>
+            <th>适合住宿的人数</th>
+            <th>房租</th>
+            <th>房东的ID</th>
+            <th>是/否可以出租</th>
+            <th>是/否租用的原因</th>
+        </tr>
+        <tr th:each="house,houseStat:${houseList.list}">
+            <td th:text="${house[__${houseStat.index}__].id}">id</td>
+            <td><input type="text" th:field="*{house[__${houseStat.index}__].houAddress}"></td>
+            <td><input type="text" th:field="*{house[__${houseStat.index}__].type}"></td>
+            <td><input type="text" th:field="*{house[__${houseStat.index}__].population}"></td>
+            <td><input type="text" th:field="*{house[__${houseStat.index}__].rentPrice}"></td>
+            <td><input type="text" th:field="*{house[__${houseStat.index}__].landlord.lanId}"></td>
+            <td th:if="${house.rentOrNot} eq '可供出租'">
+                <select th:field="*{house[__${houseStat.index}__].rentOrNot}">
+                    <option value="可出租">可出租</option>
+                    <option value="不可出租">不可出租</option>
+                </select></td>
+            <td><input type="text" th:field="*{house[__${houseStat.index}__].reason}" placeholder="请简写原因"></td>
+        </tr>
+    </table>
+    <input type="submit" value="提交">
+    <p style="color: grey">tip:修改房源信息需要支付一定费用</p>
+</form>
+	<a th:href="@{'/landlord/'+${lanName}">房东信息页面</a>
+	<a th:href="@{/house/increase}">增加房源</a>
+	<a th:href="@{/index}">首页</a>
+</body>
+</html>
